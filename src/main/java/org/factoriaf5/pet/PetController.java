@@ -5,21 +5,22 @@ import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
 
+import org.factoriaf5.implementations.InterfaceGenericService;
 import org.springframework.web.bind.annotation.GetMapping;
 
 @RestController
 @RequestMapping(path = "${api-endpoint}/pets")
 public class PetController {
 
-    private final InterfacePetService service;
+    private final InterfaceGenericService<PetEntity> service;
 
-    public PetController(InterfacePetService service) {
+    public PetController(InterfaceGenericService<PetEntity> service) {
         this.service = service;
     }
 
     @GetMapping("")
     public List<PetEntity> getPets() {
-        return service.getPets();
+        return service.getEntities();
     }
     
 
