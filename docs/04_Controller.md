@@ -104,7 +104,7 @@ GET /countries/5
 public CountryEntity getById(@PathVariable Long id)
 ```
 
-## 7. Buenas prácticas con Controllers
+## 6. Buenas prácticas con Controllers
 - Mantenerlos ligeros: solo recibir peticiones y delegar al servicio.
 - No incluir lógica de negocio.
 - Usar DTOs + mappers para no exponer Entities directamente.

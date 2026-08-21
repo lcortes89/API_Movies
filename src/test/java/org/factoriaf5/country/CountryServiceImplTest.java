@@ -3,19 +3,25 @@ package org.factoriaf5.country;
 import static org.hamcrest.CoreMatchers.equalTo;
 import static org.hamcrest.CoreMatchers.is;
 import static org.hamcrest.MatcherAssert.assertThat;
+import static org.hamcrest.Matchers.nullValue;
 import static org.mockito.Mockito.when;
 
 import java.util.List;
 import java.util.Optional;
 
+import org.factoriaf5.country.dtos.CountryDTORequest;
+import org.factoriaf5.country.dtos.CountryDTOResponse;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
+import org.mockito.Mockito;
 import org.mockito.junit.jupiter.MockitoExtension;
+import org.springframework.data.domain.Example;
 
 @ExtendWith(MockitoExtension.class)
-public class CountryServiceImplTest {
+class CountryServiceImplTest {
 
     @InjectMocks
     private CountryServiceImpl service;
@@ -23,6 +29,7 @@ public class CountryServiceImplTest {
     @Mock
     private CountryRepository repository;
 
+    @BeforeEach
     void setUp() {
         service = new CountryServiceImpl(repository);
     }
@@ -35,11 +42,11 @@ public class CountryServiceImplTest {
         );
 
         when(repository.findAll()).thenReturn(countriesMock);
-        List<CountryEntity> countries = service.getEntities();
+        List<CountryDTOResponse> countries = service.getEntities();
 
         assertThat(countries.size(), is(equalTo(2)));
-        assertThat(countries.get(0).getName(), is(equalTo("France")));
-        assertThat(countries.get(1).getName(), is(equalTo("Italy")));
+        assertThat(countries.get(0).name(), is(equalTo("France")));
+        assertThat(countries.get(1).name(), is(equalTo("Italy")));
     }
 
     @Test
@@ -47,9 +54,31 @@ public class CountryServiceImplTest {
         CountryEntity countryMock = new CountryEntity(1L, "France");
 
         when(repository.findById(1L)).thenReturn(Optional.of(countryMock));
-        CountryEntity countries = service.getById(1L);
+        CountryDTOResponse countries = service.getById(1L);
 
-        assertThat(countries.getId(), is(equalTo(1L)));
-        assertThat(countries.getName(), is(equalTo("France")));
+        assertThat(countries.id(), is(equalTo(1L)));
+        assertThat(countries.name(), is(equalTo("France")));
+    }
+
+    @Test
+    void testStoreCountry() {
+        CountryDTORequest dto = new CountryDTORequest("Brazil");
+
+        when(repository.save(Mockito.any(CountryEntity.class))).thenReturn(new CountryEntity(1L, dto.name()));
+        when(repository.findAll(Mockito.<Example<CountryEntity>>any())).thenReturn(List.of());
+        CountryDTOResponse entity = service.storeEntity(dto);
+
+        assertThat(entity.name(), is(equalTo("Brazil")));
+    }
+
+    @Test
+    void testStoreCountry_CountryExist() {
+        CountryDTORequest dto = new CountryDTORequest("Brazil");
+        CountryEntity country = new CountryEntity(1L, "Brazil");
+
+        when(repository.findAll(Mockito.<Example<CountryEntity>>any())).thenReturn(List.of(country));
+        CountryDTOResponse entity = service.storeEntity(dto);
+
+        assertThat(entity, nullValue());
     }
 }

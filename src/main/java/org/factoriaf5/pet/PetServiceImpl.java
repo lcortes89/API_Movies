@@ -2,11 +2,11 @@ package org.factoriaf5.pet;
 
 import java.util.List;
 
-import org.factoriaf5.implementations.InterfaceGenericService;
+import org.factoriaf5.implementations.InterfaceGenericGetService;
 import org.springframework.stereotype.Service;
 
 @Service
-public class PetServiceImpl implements InterfaceGenericService<PetEntity> {
+public class PetServiceImpl implements InterfaceGenericGetService<PetEntity> {
 
     @Override
     public List<PetEntity> getEntities() {

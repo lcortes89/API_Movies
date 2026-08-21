@@ -7,5 +7,6 @@
 - Spring Data JPA
 - H2 Database
 - MySQL Driver
+- Validation
 - Spring Boot Actuator (opcional)
 - Testcontainers (opcional)
