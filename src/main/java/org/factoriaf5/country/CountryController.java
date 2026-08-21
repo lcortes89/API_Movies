@@ -3,6 +3,8 @@ package org.factoriaf5.country;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import jakarta.validation.Valid;
+
 import java.util.List;
 
 import org.factoriaf5.country.dtos.CountryDTORequest;
@@ -41,10 +43,7 @@ public class CountryController {
     }
 
     @PostMapping("")
-    public ResponseEntity<CountryDTOResponse> store(@RequestBody CountryDTORequest dto) {
-
-        if (dto.name().isBlank())
-            return ResponseEntity.badRequest().build();
+    public ResponseEntity<CountryDTOResponse> store(@Valid @RequestBody CountryDTORequest dto) {
 
         CountryDTOResponse dtoResponse = editService.storeEntity(dto);
 
