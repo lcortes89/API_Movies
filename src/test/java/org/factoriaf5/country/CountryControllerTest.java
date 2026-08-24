@@ -31,7 +31,7 @@ class CountryControllerTest {
     private MockMvc mockMvc;
 
     @MockitoBean
-    private InterfaceGenericGetService<CountryDTOResponse> service;
+    private InterfaceGenericGetService<CountryDTOResponse, CountryDTORequest> service;
 
     @MockitoBean
     private InterfaceGenericeEditService<CountryDTORequest, CountryDTOResponse> serviceEdit;

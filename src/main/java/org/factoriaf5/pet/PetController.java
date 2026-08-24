@@ -12,9 +12,9 @@ import org.springframework.web.bind.annotation.GetMapping;
 @RequestMapping(path = "${api-endpoint}/pets")
 public class PetController {
 
-    private final InterfaceGenericGetService<PetEntity> service;
+    private final InterfaceGenericGetService<PetEntity, Object> service;
 
-    public PetController(InterfaceGenericGetService<PetEntity> service) {
+    public PetController(InterfaceGenericGetService<PetEntity, Object> service) {
         this.service = service;
     }
 

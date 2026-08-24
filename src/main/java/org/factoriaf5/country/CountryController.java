@@ -22,11 +22,11 @@ import org.springframework.web.bind.annotation.RequestBody;
 @RequestMapping(path = "${api-endpoint}/countries")
 public class CountryController {
 
-    private final InterfaceGenericGetService<CountryDTOResponse> getService;
+    private final InterfaceGenericGetService<CountryDTOResponse, CountryDTORequest> getService;
     private final InterfaceGenericeEditService<CountryDTORequest, CountryDTOResponse> editService;
 
     public CountryController(
-        InterfaceGenericGetService<CountryDTOResponse> getService,
+        InterfaceGenericGetService<CountryDTOResponse, CountryDTORequest> getService,
         InterfaceGenericeEditService<CountryDTORequest, CountryDTOResponse> editService) {
         this.getService = getService;
         this.editService = editService;
@@ -56,4 +56,19 @@ public class CountryController {
         // return ResponseEntity.created(URI.create("/countries/" + dtoResponse.id())).body(dtoResponse);
     }
 
+    @GetMapping("name")
+    public CountryDTOResponse getByName(@RequestBody CountryDTORequest dto) {
+        return getService.getByName(dto);
+    }
+
+    @GetMapping("name/{letter}")
+    public List<CountryDTOResponse> getStartingWith(@PathVariable String letter) {
+        return getService.getByNameStartingWith(letter);
+    }
+
+    @GetMapping("name/syllable/{syllable}")
+    public List<CountryDTOResponse> getBySyllable(@PathVariable String syllable) {
+        return getService.getBySyllable(syllable);
+    }
+    
 }
