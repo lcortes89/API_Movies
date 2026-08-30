@@ -1,5 +1,7 @@
 package org.luisa.genre;
 
-public class GenreRepository {
-    
+import org.springframework.data.jpa.repository.JpaRepository;
+
+public interface GenreRepository extends JpaRepository<GenreEntity, Long> {
+    boolean existsByNameAndIdNot(String name, Long id);
 }

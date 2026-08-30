@@ -1,7 +1,7 @@
-package org.luisa.actor;
+package org.luisa.genre;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 
-public interface ActorRepository extends JpaRepository<ActorEntity, Long> {
+public interface GenreRepository extends JpaRepository<GenreEntity, Long> {
     boolean existsByNameAndIdNot(String name, Long id);
 }

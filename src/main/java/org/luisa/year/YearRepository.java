@@ -1,5 +1,7 @@
 package org.luisa.year;
 
-public class YearRepository {
-    
+import org.springframework.data.jpa.repository.JpaRepository;
+
+public interface YearRepository extends JpaRepository<YearEntity, Long> {
+    boolean existsByReleaseYearAndIdNot(Integer releaseYear, Long id);
 }
