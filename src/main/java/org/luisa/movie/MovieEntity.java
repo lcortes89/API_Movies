@@ -30,16 +30,12 @@ public class MovieEntity {
     private String synopsis;
 
     @ManyToOne
+    @JoinColumn(name = "genre_id")
+    private GenreEntity genre;
+
+    @ManyToOne
     @JoinColumn(name = "year_id")
     private YearEntity year;
-
-    @ManyToMany
-    @JoinTable(
-        name = "movie_genres",
-        joinColumns = @JoinColumn(name = "movie_id"),
-        inverseJoinColumns = @JoinColumn(name = "genre_id")
-    )
-    private List<GenreEntity> genres = new ArrayList<>();
 
     @ManyToMany
     @JoinTable(
@@ -76,20 +72,20 @@ public class MovieEntity {
         this.synopsis = synopsis;
     }
 
+    public GenreEntity getGenre() {
+        return genre;
+    }
+
+    public void setGenre(GenreEntity genre) {
+        this.genre = genre;
+    }
+
     public YearEntity getYear() {
         return year;
     }
 
     public void setYear(YearEntity year) {
         this.year = year;
-    }
-
-    public List<GenreEntity> getGenres() {
-        return genres;
-    }
-
-    public void setGenres(List<GenreEntity> genres) {
-        this.genres = genres;
     }
 
     public List<ActorEntity> getActors() {

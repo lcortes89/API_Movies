@@ -33,6 +33,7 @@ public class ActorServiceImpl implements InterfaceActorService {
         return ActorMapper.toDTO(actor);
     }
 
+    @Override
     public ActorDTOResponse storeEntity(ActorDTORequest dto) {
         ActorEntity actorToSave = ActorMapper.toEntity(dto);
 
@@ -46,6 +47,7 @@ public class ActorServiceImpl implements InterfaceActorService {
         return ActorMapper.toDTO(actorSaved);
     }
 
+    @Override
     public ActorDTOResponse updateEntity(Long id, ActorDTORequest dto) {
         boolean actorExists = repository.existsById(id);
         if (!actorExists)

@@ -22,11 +22,9 @@ import org.springframework.web.bind.annotation.RestController;
 public class GenreController {
 
     private final InterfaceGenreService service;
-    private final GenreServiceImpl serviceImpl;
 
-    public GenreController(InterfaceGenreService service, GenreServiceImpl serviceImpl) {
+    public GenreController(InterfaceGenreService service) {
         this.service = service;
-        this.serviceImpl = serviceImpl;
     }
 
     @GetMapping("")
@@ -41,7 +39,7 @@ public class GenreController {
 
     @PostMapping("")
     public ResponseEntity<GenreDTOResponse> store(@Valid @RequestBody GenreDTORequest dto) {
-        GenreDTOResponse dtoResponse = serviceImpl.storeEntity(dto);
+        GenreDTOResponse dtoResponse = service.storeEntity(dto);
 
         if (dtoResponse == null)
             return ResponseEntity.status(HttpStatus.CONFLICT).build();
@@ -51,7 +49,7 @@ public class GenreController {
 
     @PutMapping("{id}")
     public ResponseEntity<GenreDTOResponse> update(@PathVariable Long id, @Valid @RequestBody GenreDTORequest dto) {
-        GenreDTOResponse dtoResponse = serviceImpl.updateEntity(id, dto);
+        GenreDTOResponse dtoResponse = service.updateEntity(id, dto);
 
         if (dtoResponse == null)
             return ResponseEntity.status(HttpStatus.CONFLICT).build();

@@ -14,8 +14,8 @@ public record MovieDTORequest(
         @NotNull(message = "Year id cannot be null")
         Long yearId,
 
-        @NotNull(message = "Genre ids cannot be null")
-        List<Long> genreIds,
+        @NotNull(message = "Genre id cannot be null")
+        Long genreId,
 
         List<Long> actorIds) {
 }

@@ -17,7 +17,7 @@ public class MovieMapper {
                 entity.getTitle(),
                 entity.getSynopsis(),
                 entity.getYear() != null ? YearMapper.toDTO(entity.getYear()) : null,
-                entity.getGenres().stream().map(GenreMapper::toDTO).toList(),
+                entity.getGenre() != null ? GenreMapper.toDTO(entity.getGenre()) : null,
                 entity.getActors().stream().map(ActorMapper::toDTO).toList()
         );
     }

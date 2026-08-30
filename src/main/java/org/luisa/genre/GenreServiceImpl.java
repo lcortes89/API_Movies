@@ -33,6 +33,7 @@ public class GenreServiceImpl implements InterfaceGenreService {
         return GenreMapper.toDTO(genre);
     }
 
+    @Override
     public GenreDTOResponse storeEntity(GenreDTORequest dto) {
         GenreEntity genreToSave = GenreMapper.toEntity(dto);
 
@@ -46,6 +47,7 @@ public class GenreServiceImpl implements InterfaceGenreService {
         return GenreMapper.toDTO(genreSaved);
     }
 
+    @Override
     public GenreDTOResponse updateEntity(Long id, GenreDTORequest dto) {
         boolean genreExists = repository.existsById(id);
         if (!genreExists)

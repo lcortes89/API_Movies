@@ -24,11 +24,9 @@ import org.springframework.web.bind.annotation.RestController;
 public class MovieController {
 
     private final InterfaceMovieService service;
-    private final MovieServiceImpl serviceImpl;
 
-    public MovieController(InterfaceMovieService service, MovieServiceImpl serviceImpl) {
+    public MovieController(InterfaceMovieService service) {
         this.service = service;
-        this.serviceImpl = serviceImpl;
     }
 
     // 1. Obtener todas las películas
@@ -46,21 +44,21 @@ public class MovieController {
     // 3. Añadir una película
     @PostMapping("")
     public ResponseEntity<MovieDTOResponse> store(@Valid @RequestBody MovieDTORequest dto) {
-        MovieDTOResponse dtoResponse = serviceImpl.storeEntity(dto);
+        MovieDTOResponse dtoResponse = service.storeEntity(dto);
         return ResponseEntity.status(HttpStatus.CREATED).body(dtoResponse);
     }
 
     // 4. Actualizar una película
     @PutMapping("{id}")
     public ResponseEntity<MovieDTOResponse> update(@PathVariable Long id, @Valid @RequestBody MovieDTORequest dto) {
-        MovieDTOResponse dtoResponse = serviceImpl.updateEntity(id, dto);
+        MovieDTOResponse dtoResponse = service.updateEntity(id, dto);
         return ResponseEntity.ok(dtoResponse);
     }
 
     // 5. Eliminar una película
     @DeleteMapping("{id}")
     public ResponseEntity<Void> delete(@PathVariable Long id) {
-        serviceImpl.deleteEntity(id);
+        service.deleteEntity(id);
         return ResponseEntity.noContent().build();
     }
 
@@ -71,10 +69,10 @@ public class MovieController {
             @RequestParam(required = false) String genre) {
 
         if (title != null && !title.isBlank()) {
-            return serviceImpl.findByTitle(title);
+            return service.findByTitle(title);
         }
         if (genre != null && !genre.isBlank()) {
-            return serviceImpl.findByGenre(genre);
+            return service.findByGenre(genre);
         }
         return service.getEntities();
     }

@@ -33,6 +33,7 @@ public class YearServiceImpl implements InterfaceYearService {
         return YearMapper.toDTO(year);
     }
 
+    @Override
     public YearDTOResponse storeEntity(YearDTORequest dto) {
         YearEntity yearToSave = YearMapper.toEntity(dto);
 
@@ -46,6 +47,7 @@ public class YearServiceImpl implements InterfaceYearService {
         return YearMapper.toDTO(yearSaved);
     }
 
+    @Override
     public YearDTOResponse updateEntity(Long id, YearDTORequest dto) {
         boolean yearExists = repository.existsById(id);
         if (!yearExists)

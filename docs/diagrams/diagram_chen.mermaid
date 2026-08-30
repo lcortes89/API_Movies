@@ -1,0 +1,29 @@
+flowchart TD
+    GENRE[GÉNERO]
+    YEAR[AÑO]
+    MOVIE[PELÍCULA]
+    ACTOR[ACTOR]
+
+    R1{PERTENECE A}
+    R2{ESTRENADA EN}
+    R3{PARTICIPA EN}
+
+    GENRE -- 1 --- R1
+    R1 -- N --- MOVIE
+    YEAR -- 1 --- R2
+    R2 -- N --- MOVIE
+    MOVIE -- N --- R3
+    R3 -- M --- ACTOR
+
+    GENRE_ID([id PK]) --- GENRE
+    GENRE_NAME([nombre]) --- GENRE
+
+    YEAR_ID([id PK]) --- YEAR
+    YEAR_VAL([año]) --- YEAR
+
+    MOVIE_ID([id PK]) --- MOVIE
+    MOVIE_TITLE([título]) --- MOVIE
+    MOVIE_SYN([sinopsis]) --- MOVIE
+
+    ACTOR_ID([id PK]) --- ACTOR
+    ACTOR_NAME([nombre]) --- ACTOR

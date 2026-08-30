@@ -1,0 +1,24 @@
+erDiagram
+    GENRES ||--o{ MOVIES : has
+    YEARS ||--o{ MOVIES : has
+    MOVIES }o--o{ ACTORS : movie_actors
+
+    GENRES {
+        bigint id PK
+        varchar name
+    }
+    YEARS {
+        bigint id PK
+        int release_year
+    }
+    MOVIES {
+        bigint id PK
+        varchar title
+        varchar synopsis
+        bigint genre_id FK
+        bigint year_id FK
+    }
+    ACTORS {
+        bigint id PK
+        varchar name
+    }

@@ -22,11 +22,9 @@ import org.springframework.web.bind.annotation.RestController;
 public class ActorController {
 
     private final InterfaceActorService service;
-    private final ActorServiceImpl serviceImpl;
 
-    public ActorController(InterfaceActorService service, ActorServiceImpl serviceImpl) {
+    public ActorController(InterfaceActorService service) {
         this.service = service;
-        this.serviceImpl = serviceImpl;
     }
 
     @GetMapping("")
@@ -41,7 +39,7 @@ public class ActorController {
 
     @PostMapping("")
     public ResponseEntity<ActorDTOResponse> store(@Valid @RequestBody ActorDTORequest dto) {
-        ActorDTOResponse dtoResponse = serviceImpl.storeEntity(dto);
+        ActorDTOResponse dtoResponse = service.storeEntity(dto);
 
         if (dtoResponse == null)
             return ResponseEntity.status(HttpStatus.CONFLICT).build();
@@ -51,7 +49,7 @@ public class ActorController {
 
     @PutMapping("{id}")
     public ResponseEntity<ActorDTOResponse> update(@PathVariable Long id, @Valid @RequestBody ActorDTORequest dto) {
-        ActorDTOResponse dtoResponse = serviceImpl.updateEntity(id, dto);
+        ActorDTOResponse dtoResponse = service.updateEntity(id, dto);
 
         if (dtoResponse == null)
             return ResponseEntity.status(HttpStatus.CONFLICT).build();

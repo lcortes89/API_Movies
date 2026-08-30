@@ -40,8 +40,8 @@ public class MovieEntityBuilder implements IMovieBuilder {
     }
 
     @Override
-    public MovieEntityBuilder genres(List<GenreEntity> genres) {
-        entity.setGenres(genres);
+    public MovieEntityBuilder genre(GenreEntity genre) {
+        entity.setGenre(genre);
         return this;
     }
 

@@ -47,6 +47,7 @@ public class MovieServiceImpl implements InterfaceMovieService {
         return MovieMapper.toDTO(movie);
     }
 
+    @Override
     public MovieDTOResponse storeEntity(MovieDTORequest dto) {
         if (repository.existsByTitleIgnoreCase(dto.title())) {
             throw new MovieConflictException("Movie already exists with title '" + dto.title() + "'.");
@@ -57,6 +58,7 @@ public class MovieServiceImpl implements InterfaceMovieService {
         return MovieMapper.toDTO(savedMovie);
     }
 
+    @Override
     public MovieDTOResponse updateEntity(Long id, MovieDTORequest dto) {
         MovieEntity movie = repository.findById(id)
                 .orElseThrow(() -> new MovieNotFoundException("Movie not found. Id " + id + " does not exist."));
@@ -70,6 +72,7 @@ public class MovieServiceImpl implements InterfaceMovieService {
         return MovieMapper.toDTO(savedMovie);
     }
 
+    @Override
     public void deleteEntity(Long id) {
         if (!repository.existsById(id)) {
             throw new MovieNotFoundException("Movie not found. Id " + id + " does not exist.");
@@ -77,14 +80,16 @@ public class MovieServiceImpl implements InterfaceMovieService {
         repository.deleteById(id);
     }
 
+    @Override
     public List<MovieDTOResponse> findByTitle(String title) {
         return repository.findByTitleContainingIgnoreCase(title).stream()
                 .map(MovieMapper::toDTO)
                 .toList();
     }
 
+    @Override
     public List<MovieDTOResponse> findByGenre(String genreName) {
-        return repository.findByGenres_NameContainingIgnoreCase(genreName).stream()
+        return repository.findByGenre_NameContainingIgnoreCase(genreName).stream()
                 .map(MovieMapper::toDTO)
                 .toList();
     }
@@ -93,10 +98,8 @@ public class MovieServiceImpl implements InterfaceMovieService {
         YearEntity year = yearRepository.findById(dto.yearId())
                 .orElseThrow(() -> new MovieBadRequestException("Year not found. Id " + dto.yearId() + " does not exist."));
 
-        List<GenreEntity> genres = genreRepository.findAllById(dto.genreIds());
-        if (genres.size() != dto.genreIds().size()) {
-            throw new MovieBadRequestException("One or more genre ids do not exist.");
-        }
+        GenreEntity genre = genreRepository.findById(dto.genreId())
+                .orElseThrow(() -> new MovieBadRequestException("Genre not found. Id " + dto.genreId() + " does not exist."));
 
         List<ActorEntity> actors = dto.actorIds() != null
                 ? actorRepository.findAllById(dto.actorIds())
@@ -105,7 +108,7 @@ public class MovieServiceImpl implements InterfaceMovieService {
         movie.setTitle(dto.title());
         movie.setSynopsis(dto.synopsis());
         movie.setYear(year);
-        movie.setGenres(genres);
+        movie.setGenre(genre);
         movie.setActors(actors);
         return movie;
     }

@@ -22,11 +22,9 @@ import org.springframework.web.bind.annotation.RestController;
 public class YearController {
 
     private final InterfaceYearService service;
-    private final YearServiceImpl serviceImpl;
 
-    public YearController(InterfaceYearService service, YearServiceImpl serviceImpl) {
+    public YearController(InterfaceYearService service) {
         this.service = service;
-        this.serviceImpl = serviceImpl;
     }
 
     @GetMapping("")
@@ -41,7 +39,7 @@ public class YearController {
 
     @PostMapping("")
     public ResponseEntity<YearDTOResponse> store(@Valid @RequestBody YearDTORequest dto) {
-        YearDTOResponse dtoResponse = serviceImpl.storeEntity(dto);
+        YearDTOResponse dtoResponse = service.storeEntity(dto);
 
         if (dtoResponse == null)
             return ResponseEntity.status(HttpStatus.CONFLICT).build();
@@ -51,7 +49,7 @@ public class YearController {
 
     @PutMapping("{id}")
     public ResponseEntity<YearDTOResponse> update(@PathVariable Long id, @Valid @RequestBody YearDTORequest dto) {
-        YearDTOResponse dtoResponse = serviceImpl.updateEntity(id, dto);
+        YearDTOResponse dtoResponse = service.updateEntity(id, dto);
 
         if (dtoResponse == null)
             return ResponseEntity.status(HttpStatus.CONFLICT).build();

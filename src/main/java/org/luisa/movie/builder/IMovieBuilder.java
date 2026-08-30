@@ -17,7 +17,7 @@ public interface IMovieBuilder {
 
     MovieEntityBuilder year(YearEntity year);
 
-    MovieEntityBuilder genres(List<GenreEntity> genres);
+    MovieEntityBuilder genre(GenreEntity genre);
 
     MovieEntityBuilder actors(List<ActorEntity> actors);
 
