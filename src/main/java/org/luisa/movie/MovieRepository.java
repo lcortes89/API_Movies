@@ -10,5 +10,7 @@ public interface MovieRepository extends JpaRepository<MovieEntity, Long> {
 
     List<MovieEntity> findByGenres_NameContainingIgnoreCase(String genreName);
 
+    boolean existsByTitleIgnoreCase(String title);
+
     boolean existsByTitleIgnoreCaseAndIdNot(String title, Long id);
 }

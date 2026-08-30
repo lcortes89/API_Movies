@@ -1,5 +1,12 @@
 package org.luisa.movie;
 
-public class InterfaceMovieService {
-    
+import java.util.List;
+
+import org.luisa.movie.dtos.MovieDTOResponse;
+
+public interface InterfaceMovieService {
+
+    List<MovieDTOResponse> getEntities();
+
+    MovieDTOResponse getById(Long id);
 }
