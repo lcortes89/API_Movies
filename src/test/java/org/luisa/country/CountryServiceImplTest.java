@@ -1,4 +1,4 @@
-package org.factoriaf5.country;
+package org.luisa.country;
 
 import static org.hamcrest.CoreMatchers.equalTo;
 import static org.hamcrest.CoreMatchers.is;
@@ -9,8 +9,8 @@ import static org.mockito.Mockito.when;
 import java.util.List;
 import java.util.Optional;
 
-import org.factoriaf5.country.dtos.CountryDTORequest;
-import org.factoriaf5.country.dtos.CountryDTOResponse;
+import org.luisa.country.dtos.CountryDTORequest;
+import org.luisa.country.dtos.CountryDTOResponse;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;

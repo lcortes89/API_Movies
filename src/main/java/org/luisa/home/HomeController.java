@@ -1,4 +1,4 @@
-package org.factoriaf5.home;
+package org.luisa.home;
 
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.bind.annotation.GetMapping;

@@ -1,4 +1,4 @@
-package org.factoriaf5.country.dtos;
+package org.luisa.country.dtos;
 
 public record CountryDTOResponse(Long id, String name) {
     

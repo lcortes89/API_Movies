@@ -1,4 +1,4 @@
-package org.factoriaf5;
+package org.luisa;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;

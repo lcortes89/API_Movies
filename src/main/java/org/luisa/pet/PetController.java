@@ -1,11 +1,11 @@
-package org.factoriaf5.pet;
+package org.luisa.pet;
 
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
 
-import org.factoriaf5.implementations.InterfaceGenericGetService;
+import org.luisa.implementations.InterfaceGenericGetService;
 import org.springframework.web.bind.annotation.GetMapping;
 
 @RestController

@@ -1,4 +1,4 @@
-package org.factoriaf5.country.exceptions;
+package org.luisa.country.exceptions;
 
 public class CountryException extends RuntimeException {
     

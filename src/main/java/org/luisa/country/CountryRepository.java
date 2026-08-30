@@ -1,4 +1,4 @@
-package org.factoriaf5.country;
+package org.luisa.country;
 
 import java.util.List;
 import java.util.Optional;

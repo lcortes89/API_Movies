@@ -1,4 +1,4 @@
-package org.factoriaf5.implementations;
+package org.luisa.implementations;
 
 public interface InterfaceGenericeEditService<T, S> {
     

@@ -1,8 +1,8 @@
-package org.factoriaf5.country.mappers;
+package org.luisa.country.mappers;
 
-import org.factoriaf5.country.CountryEntity;
-import org.factoriaf5.country.dtos.CountryDTORequest;
-import org.factoriaf5.country.dtos.CountryDTOResponse;
+import org.luisa.country.CountryEntity;
+import org.luisa.country.dtos.CountryDTORequest;
+import org.luisa.country.dtos.CountryDTOResponse;
 
 // @Component - Si quisieramos un bean en el contenedor de spring
 public class CountryMapper {

@@ -1,7 +1,7 @@
-package org.factoriaf5.profile;
+package org.luisa.profile;
 
-import org.factoriaf5.country.CountryEntity;
-import org.factoriaf5.user.UserEntity;
+import org.luisa.country.CountryEntity;
+import org.luisa.user.UserEntity;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
 

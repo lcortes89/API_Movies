@@ -1,4 +1,4 @@
-package org.factoriaf5.country;
+package org.luisa.country;
 
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -7,10 +7,10 @@ import jakarta.validation.Valid;
 
 import java.util.List;
 
-import org.factoriaf5.country.dtos.CountryDTORequest;
-import org.factoriaf5.country.dtos.CountryDTOResponse;
-import org.factoriaf5.implementations.InterfaceGenericGetService;
-import org.factoriaf5.implementations.InterfaceGenericeEditService;
+import org.luisa.country.dtos.CountryDTORequest;
+import org.luisa.country.dtos.CountryDTOResponse;
+import org.luisa.implementations.InterfaceGenericGetService;
+import org.luisa.implementations.InterfaceGenericeEditService;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;

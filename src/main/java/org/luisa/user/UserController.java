@@ -1,12 +1,12 @@
-package org.factoriaf5.user;
+package org.luisa.user;
 
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
 
-import org.factoriaf5.group.GroupEntity;
-import org.factoriaf5.profile.ProfileEntity;
+import org.luisa.group.GroupEntity;
+import org.luisa.profile.ProfileEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;

@@ -1,9 +1,9 @@
-package org.factoriaf5.user;
+package org.luisa.user;
 
 import java.util.Set;
 
-import org.factoriaf5.group.GroupEntity;
-import org.factoriaf5.profile.ProfileEntity;
+import org.luisa.group.GroupEntity;
+import org.luisa.profile.ProfileEntity;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 

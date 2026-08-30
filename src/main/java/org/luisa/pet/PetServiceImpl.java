@@ -1,9 +1,9 @@
-package org.factoriaf5.pet;
+package org.luisa.pet;
 
 import java.util.List;
 
-import org.factoriaf5.country.dtos.CountryDTOResponse;
-import org.factoriaf5.implementations.InterfaceGenericGetService;
+import org.luisa.country.dtos.CountryDTOResponse;
+import org.luisa.implementations.InterfaceGenericGetService;
 import org.springframework.stereotype.Service;
 
 @Service

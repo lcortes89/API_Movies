@@ -1,4 +1,4 @@
-package org.factoriaf5.country.dtos;
+package org.luisa.country.dtos;
 
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;

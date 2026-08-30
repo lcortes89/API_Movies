@@ -1,4 +1,4 @@
-package org.factoriaf5;
+package org.luisa;
 
 import org.springframework.boot.test.context.TestConfiguration;
 import org.springframework.boot.testcontainers.service.connection.ServiceConnection;

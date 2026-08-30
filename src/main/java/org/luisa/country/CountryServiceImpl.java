@@ -1,14 +1,14 @@
-package org.factoriaf5.country;
+package org.luisa.country;
 
 import java.util.ArrayList;
 import java.util.List;
 
-import org.factoriaf5.country.dtos.CountryDTORequest;
-import org.factoriaf5.country.dtos.CountryDTOResponse;
-import org.factoriaf5.country.exceptions.CountryExceptionNotFound;
-import org.factoriaf5.country.mappers.CountryMapper;
-import org.factoriaf5.implementations.InterfaceGenericGetService;
-import org.factoriaf5.implementations.InterfaceGenericeEditService;
+import org.luisa.country.dtos.CountryDTORequest;
+import org.luisa.country.dtos.CountryDTOResponse;
+import org.luisa.country.exceptions.CountryExceptionNotFound;
+import org.luisa.country.mappers.CountryMapper;
+import org.luisa.implementations.InterfaceGenericGetService;
+import org.luisa.implementations.InterfaceGenericeEditService;
 import org.springframework.data.domain.Example;
 import org.springframework.stereotype.Service;
 

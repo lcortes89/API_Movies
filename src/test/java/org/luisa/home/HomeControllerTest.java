@@ -1,4 +1,4 @@
-package org.factoriaf5.home;
+package org.luisa.home;
 
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.containsString;

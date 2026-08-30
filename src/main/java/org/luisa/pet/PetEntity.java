@@ -1,4 +1,4 @@
-package org.factoriaf5.pet;
+package org.luisa.pet;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;

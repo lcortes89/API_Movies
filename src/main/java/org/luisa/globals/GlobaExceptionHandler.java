@@ -1,10 +1,10 @@
-package org.factoriaf5.globals;
+package org.luisa.globals;
 
 import java.util.HashMap;
 import java.util.Map;
 
-import org.factoriaf5.country.exceptions.CountryException;
-import org.factoriaf5.country.exceptions.CountryExceptionNotFound;
+import org.luisa.country.exceptions.CountryException;
+import org.luisa.country.exceptions.CountryExceptionNotFound;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.MethodArgumentNotValidException;

@@ -1,4 +1,4 @@
-package org.factoriaf5.country;
+package org.luisa.country;
 
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.equalTo;
