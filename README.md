@@ -87,11 +87,11 @@ curl "http://localhost:8080/api/v1/movies/search?genre=Sci-Fi"
 
 ## Diagramas Entidad-Relación
 
-Miniaturas — haz clic en cualquiera para ver la imagen completa:
+Vista en miniatura — dar clic sobre la imagen para ampliarla:
 
 | Diagrama de Chen | Diagrama de pata de gallo (Crow's Foot) |
 |:---:|:---:|
-| [<img src="docs/diagrams/diagrama-chen.png" width="260" alt="Diagrama de Chen">](docs/diagrams/diagrama-chen.png) | [<img src="docs/diagrams/diagrama-pata-de-gallo.png" width="260" alt="Diagrama de pata de gallo">](docs/diagrams/diagrama-pata-de-gallo.png) |
+| [<img src="./docs/diagrams/diagram_chen.png" width="260" alt="Diagrama de Chen">](./docs/diagrams/diagram_chen.png) | [<img src="./docs/diagrams/crows_foot_diagram.png" width="260" alt="Diagrama de pata de gallo">](./docs/diagrams/crows_foot_diagram.png) |
 
 <details>
 <summary>Ver versión Mermaid (se renderiza directamente en GitHub)</summary>
