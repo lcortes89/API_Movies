@@ -24,4 +24,15 @@ public class ActorEntityTest {
         assertThat(actor.getId(), is(equalTo(1L)));
         assertThat(actor.getName(), is(equalTo("Keanu Reeves")));
     }
+        @Test
+        void testActorEntity_Builder() {
+            ActorEntity actor = ActorEntity.builder()
+                    .id(1L)
+                    .name("Tom Hanks")
+                    .build();
+
+            assertThat(actor, instanceOf(ActorEntity.class));
+            assertThat(actor.getId(), is(equalTo(1L)));
+            assertThat(actor.getName(), is(equalTo("Tom Hanks")));
+        }
 }

@@ -24,4 +24,16 @@ public class GenreEntityTest {
         assertThat(genre.getId(), is(equalTo(1L)));
         assertThat(genre.getName(), is(equalTo("Sci-Fi")));
     }
+
+        @Test
+         void testGenreEntity_Builder() {
+             GenreEntity genre = GenreEntity.builder()
+                .id(1L)
+                .name("Terror")
+                .build();
+
+            assertThat(genre, instanceOf(GenreEntity.class));
+            assertThat(genre.getId(), is(equalTo(1L)));
+            assertThat(genre.getName(), is(equalTo("Terror")));
+        }
 }
