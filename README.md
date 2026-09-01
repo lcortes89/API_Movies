@@ -19,6 +19,7 @@ API REST construida con Spring Boot para gestionar un catálogo de películas: c
 - [⚙ Instalación](#installation)
 - [▶ Uso](#usage)
 - [🧪 Pruebas rápidas](#testing)
+- [✅ Tests unitarios](#unit-tests)
 - [📂 Estructura del proyecto](#structure)
 - [👩‍💻 Autora](#author)
 
@@ -87,11 +88,11 @@ curl "http://localhost:8080/api/v1/movies/search?genre=Sci-Fi"
 
 ## Diagramas Entidad-Relación
 
-Vista en miniatura — dar clic sobre la imagen para ampliarla:
+Miniaturas — haz clic en cualquiera para ver la imagen completa:
 
 | Diagrama de Chen | Diagrama de pata de gallo (Crow's Foot) |
 |:---:|:---:|
-| [<img src="./docs/diagrams/diagram_chen.png" width="260" alt="Diagrama de Chen">](./docs/diagrams/diagram_chen.png) | [<img src="./docs/diagrams/crows_foot_diagram.png" width="260" alt="Diagrama de pata de gallo">](./docs/diagrams/crows_foot_diagram.png) |
+| [<img src="docs/diagrams/diagram_chen.png" width="260" alt="Diagrama de Chen">](docs/diagrams/diagram_chen.png) | [<img src="docs/diagrams/crows_foot_diagram.png" width="260" alt="Diagrama de pata de gallo">](docs/diagrams/crows_foot_diagram.png) |
 
 <details>
 <summary>Ver versión Mermaid (se renderiza directamente en GitHub)</summary>
@@ -224,7 +225,23 @@ curl "http://localhost:8080/api/v1/movies/search?genre=Sci-Fi"
 
 También puedes importar estas peticiones en Postman manualmente, siguiendo los ejemplos de la sección [Demo](#demo).
 
-[← Uso](#usage) • [↑ Índice](#index) • [Estructura del proyecto →](#structure)
+[← Uso](#usage) • [↑ Índice](#index) • [Tests unitarios →](#unit-tests)
+
+<a id="unit-tests"></a>
+
+## Tests unitarios
+
+Se desarrollaron tests unitarios para las 4 entidades principales (`Genre`, `Year`, `Actor`, `Movie`), cubriendo Entity, Service, Controller y Mapper, siguiendo el mismo estilo enseñado en clase con `Country`. Se usa JUnit 5, Mockito (para simular los repositorios sin tocar una base de datos real) y MockMvc (para simular peticiones HTTP a los controllers).
+
+```bash
+./mvnw test
+```
+
+**Resultado: 79 tests, 0 fallos.**
+
+<img src="./docs/images/Test.png" width="700" alt="Resultado de la ejecución de los tests">
+
+[← Pruebas rápidas](#testing) • [↑ Índice](#index) • [Estructura del proyecto →](#structure)
 
 <a id="structure"></a>
 
@@ -236,8 +253,8 @@ API_MOVIES/
 ├── README.md
 ├── docs/
 │   └── diagrams/
-│       ├── diagrama-chen.png
-│       └── diagrama-pata-de-gallo.png
+│       ├── diagram_chen.png
+│       └── crows_foot_diagram.png
 ├── src/
 │   ├── main/
 │   │   ├── java/org/luisa/
@@ -267,7 +284,7 @@ API_MOVIES/
 └── target/
 ```
 
-[← Pruebas rápidas](#testing) • [↑ Índice](#index) • [Autora →](#author)
+[← Tests unitarios](#unit-tests) • [↑ Índice](#index) • [Autora →](#author)
 
 <a id="author"></a>
 
